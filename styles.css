@@ -278,3 +278,41 @@ body {
     padding: 0 1rem;
     margin-top: 15px;
 }
+
+
+.newsletter-signup {
+    color: #003d29;
+    background-color: #FAEED8;
+    margin-top: 1rem;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.newsletter-signup h2 {
+    font-size: 2.5rem;
+    color: #003d29;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-signup p{
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.newsletter-signup input {
+    padding: 0.75rem;
+    width: 50%;
+    margin-right: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.newsletter-signup button {
+    padding: 0.75rem 1.5rem;
+    background: #003d29;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

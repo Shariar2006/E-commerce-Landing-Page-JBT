@@ -214,3 +214,21 @@ setInterval(() => {
     showReview(currentIndex);
 }, 5000);
 
+
+// Newsletter Signup Form
+document.getElementById('newsletter-signup').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    if (validateEmail(email)) {
+        alert('Thank you for signing up!');
+        // Clear the form
+        document.getElementById('email').value = '';
+    } else {
+        alert('Please enter a valid email address.');
+    }
+});
+
+function validateEmail(email) {
+    const re = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
+    return re.test(email);
+}
