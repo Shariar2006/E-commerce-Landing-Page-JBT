@@ -81,6 +81,36 @@ const products = [
     }
 ];
 
+// Fake Reviews Data
+const reviews = [
+    {
+        author_img: "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
+        text: "This is the best online shopping experience I've ever had! The product quality is top-notch.",
+        author: "Jane Smith"
+    },
+    {
+        author_img: "https://buffer.com/library/content/images/2022/03/amina.png",
+        text: "Fast delivery, excellent customer service. Highly recommend this store!",
+        author: "Mark Johnson"
+    },
+    {
+        author_img: "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
+        text: "Great deals and amazing products. I always find what I need here.",
+        author: "Emily Davis"
+    },
+    {
+        author_img: "https://buffer.com/library/content/images/2022/03/amina.png",
+        text: "The website is so easy to navigate, and the prices are unbeatable.",
+        author: "Michael Brown"
+    },
+    {
+        author_img: "https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg",
+        text: "Love the variety of products. I can always find something unique.",
+        author: "Sarah Wilson"
+    }
+];
+
+
 // Load Products into Grid
 const productGrid = document.querySelector('.product-grid');
 
@@ -133,3 +163,54 @@ document.querySelectorAll('.filter-option').forEach(button => {
         }
     });
 });
+
+
+
+// Load Reviews into Slider
+const reviewSlider = document.querySelector('.review-slider');
+
+function loadReviews(reviews) {
+    reviewSlider.innerHTML = ''; // Clear existing reviews
+    reviews.forEach(review => {
+        const reviewSlide = document.createElement('div');
+        reviewSlide.classList.add('review-slide');
+
+        reviewSlide.innerHTML = `
+            <img src="${review.author_img}" alt="${review.author}">
+        <div>
+        <p>- ${review.author}</p>
+        <p>"${review.text}"</p>
+            </div>
+        `;
+
+        reviewSlider.appendChild(reviewSlide);
+    });
+}
+
+// Initial Load
+loadReviews(reviews);
+
+// Slider Functionality
+let currentIndex = 0;
+
+function showReview(index) {
+    const reviewWidth = reviewSlider.children[0].offsetWidth;
+    reviewSlider.style.transform = `translateX(-${index * reviewWidth}px)`;
+}
+
+document.getElementById('next-review').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % reviews.length;
+    showReview(currentIndex);
+});
+
+document.getElementById('prev-review').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+    showReview(currentIndex);
+});
+
+// Auto-slide reviews every 5 seconds
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % reviews.length;
+    showReview(currentIndex);
+}, 5000);
+
