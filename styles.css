@@ -316,3 +316,112 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
+
+
+@media (max-width: 1025px) {
+    .hero {
+        padding: 50px;
+        gap: 0px;
+    }
+
+    .hero img{
+        width: 330px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .mission-value {
+        display: flex;
+    }
+
+    .mission-value img {
+        width: 500px;
+        /* height: 100%; */
+    }
+
+}
+
+/* tablet Styles */
+@media (max-width: 769px) {
+    .hero {
+        padding: 50px;
+        gap: 0px;
+    }
+
+    .hero img{
+        width: 330px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .mission-value {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mission-value:nth-child(2) {
+        flex-direction: column-reverse;
+    }
+
+    .mission-value img {
+        width: 100%;
+    }
+
+}
+
+/* mobile Styles */
+@media (max-width: 427px) {
+    .hero {
+        height: 35vh;
+        justify-content: space-between;
+        padding: 10px;
+        gap: 0px;
+    }
+
+    .hero img{
+        width: 230px;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+    }
+
+    .hero-content p {
+        font-size:15px;
+        margin-bottom: 1rem;
+        color: #003d29;
+    }
+
+    .cta-button {
+        padding: 7px 9px;
+        text-decoration: none;
+        border-radius: 100px;
+        font-size: 12px;
+        cursor: pointer;
+        transition-duration: 200ms;
+    }
+
+    .customer-reviews {
+        width: 100%;
+    }
+    
+    .filter-controls {
+        overflow-y: auto;
+    }
+
+    .product-showcase h2 {
+        font-size: 30px;
+    }
+    .about-us h2 {
+        font-size: 30px;
+    }
+    .mission-section h3 {
+        font-size: 30px;
+    }
+}
